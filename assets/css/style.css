@@ -1,0 +1,114 @@
+:root {
+    --primary-color: #EEEEEE;
+    --second-color: #D8D2CB;
+    --third-color: #398AB9;
+    --fourth-color: #1C658C;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+.btn-mobile-page {
+    display: none;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    width: 100%;
+    padding: 0 10rem;
+    font-size: 3rem;
+    color: var(--second-color);
+    background-color: var(--fourth-color);
+}
+
+header h1 {
+    margin: auto;
+}
+
+.btn-add-client {
+    border: none;
+    background-color: var(--second-color);
+    border-radius: 20px;
+    height: 3rem;
+    width: 15rem;
+    cursor: pointer;
+}
+
+.btn-add-client:hover {
+    background-color: var(--primary-color);
+    transition: ease-in-out .3s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.head-row-table {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 20vw;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--second-color);
+    background-color: var(--third-color);
+}
+
+.modal-row:nth-child(odd) {
+    background-color: var(--fourth-color);
+    color: var(--primary-color);
+}
+
+td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 20vw;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-edit, .btn-delete {
+    height: 3rem;
+    width: 7rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--third-color);
+    color: var(--primary-color);
+    cursor: pointer;
+};
+
+.btn-edit:hover, .btn-delete:hover {
+    width: 8rem;
+    background-color: var(--fourth-color);
+    transition: ease-in-out .3s;
+}
+

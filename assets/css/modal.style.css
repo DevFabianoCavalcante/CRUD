@@ -1,0 +1,78 @@
+.modal-row {
+    display: none;
+}
+
+.modal-cad {
+    position: fixed;
+    top: 15rem;
+    left: 0;
+    right: 0;
+    height: 30rem;
+    width: 100rem;
+    display: none;
+    margin: 0 auto;
+    background-color: var(--third-color);
+    border-radius: 20px;
+}
+
+form {
+    width: 100%;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 8rem 0 0 0;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 0 0 3rem 0;
+}
+
+.input-form {
+    height: 3rem;
+    width: 25rem;
+    border: none;
+    border-radius: 20px;
+    padding: 0 0 0 1rem;
+}
+
+.input-form::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.form-btn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-submit, .btn-cancel {
+    height: 4rem;
+    width: 12rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: rgb(114, 209, 36);
+}
+
+.btn-cancel {
+    background-color: rgb(197, 52, 52);
+    color: white;
+}
+
+.btn-submit:hover, .btn-cancel:hover {
+    background-color: var(--primary-color);
+    color: black;
+    transition: ease-in-out .3s;
+}
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/modal.style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<body>
+    <button class="btn-mobile-page">^</button>
+    <div class="primary-screen">
+        <header>
+            <h1>Cadastro de clientes</h1>
+            <button type="button" id="btn-add-client" class="btn-add-client">Adicionar cliente</button>
+        </header>
+        <table>
+            <thead>
+                <tr class="head-row-table">
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Cep</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-main-table">
+                
+            </tbody>
+            <tr class="modal-row">
+                <td id="column-name" title="Nome"></td>
+                <td id="column-email" title="E-mail"></td>
+                <td id="column-tel" title="Telefone"></td>
+                <td id="column-cep" title="CEP"></td>
+                <td class="container-btn">
+                    <button type="button" class="btn-edit">Editar</button>
+                    <button type="button" class="btn-delete">Excluir</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal-cad" id="modal-cad">
+        <form method="get" autocomplete="off">
+            <div class="container-form">
+                <div>
+                    <label>
+                        Nome completo
+                        <input class="input-form" id="input-name" type="text" placeholder="Seu nome aqui">
+                    </label>
+                    <label>
+                        E-mail
+                        <input class="input-form" id="input-email" type="email" placeholder="example@gmail.com">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Telefone
+                        <input class="input-form" id="input-tel" type="tel" placeholder="(99)99999-9999">
+                    </label>
+                    <label>
+                        CEP
+                        <input class="input-form" id="input-cep" type="text" placeholder="99999-999">
+                    </label>
+                    <input class="input-form" id="checkEdit" type="number" style="display: none;">
+                </div>
+            </div>
+                <div class="form-btn">
+                    <button class="btn-submit" id="btn-submit" type="button">Concluir</button>
+                    <button class="btn-cancel" id="btn-cancel" type="button">Cancelar</button>
+                </div>
+        </form>
+
+    </div>
+
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+</body>
+</html>

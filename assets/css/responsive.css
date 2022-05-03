@@ -1,0 +1,92 @@
+@media(max-width: 1150px) {
+    .head-row-table {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        height: 15rem;
+        width: auto;
+        padding: 0;
+        font-size: 1.6rem;
+    }
+
+    header h1 {
+        margin: 0 0 2rem 0;
+        color: var(--primary-color);
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+
+    tr {
+        display: flex;
+        margin: 5rem auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60rem;
+        background-color: var(--second-color);
+    }
+
+    td {
+        height: auto;
+        width: auto;
+        margin: 1.5rem 0;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .container-btn {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: auto;
+        margin-bottom: 2rem;
+    }
+
+    .btn-edit {
+        margin-bottom: 2rem;
+    }
+
+    .modal-cad {
+        position: fixed;
+        top: 15rem;
+        left: 0;
+        right: 0;
+        height: 50rem;
+        width: auto;
+        justify-content: center;
+    }
+    
+    form {
+        width: auto;
+    }
+    
+    .container-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 8rem 0 0 0;
+    }
+    
+    .btn-mobile-page {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: 640px) {
+    tr{
+        width: auto;
+    }
+
+}
