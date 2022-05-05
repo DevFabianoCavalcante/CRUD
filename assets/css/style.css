@@ -52,14 +52,17 @@ header h1 {
 }
 
 table {
-    width: 100%;
+    margin: 0 auto;
     border-collapse: collapse;
+    box-shadow: 0.8rem 0.8rem 0.3rem var(--second-color);
+    margin: 8rem auto 0 auto;
 }
 
 .head-row-table {
-    width: 100%;
+    width: 110rem;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 th {
@@ -67,7 +70,7 @@ th {
     justify-content: center;
     align-items: center;
     height: 5rem;
-    width: 20vw;
+    width: 100%;
     font-size: 3.5rem;
     font-weight: bold;
     text-align: center;
@@ -85,9 +88,10 @@ td {
     justify-content: center;
     align-items: center;
     height: 5rem;
-    width: 20vw;
+    width: 100%;
     font-size: 2rem;
     text-align: center;
+    margin: 0 auto;
 }
 
 .container-btn {

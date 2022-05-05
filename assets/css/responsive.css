@@ -18,6 +18,10 @@
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     }
 
+    table {
+        box-shadow: none;
+    }
+
     tr {
         display: flex;
         margin: 5rem auto;
@@ -86,7 +90,7 @@
 
 @media (max-width: 640px) {
     tr{
-        width: auto;
+        width: 30rem;
     }
 
 }
