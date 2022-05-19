@@ -15,7 +15,7 @@
 
 ### Como Acessar
 
-- Acesse a página atráves do [github pages](https://devfabianocavalcante.github.io/CRUD/)
+- Acesse a página atráves do [git-hub pages](https://devfabianocavalcante.github.io/CRUD/)
 
 ### Funcionalidades 
 
