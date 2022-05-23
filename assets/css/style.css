@@ -52,7 +52,6 @@ header h1 {
 }
 
 table {
-    margin: 0 auto;
     border-collapse: collapse;
     box-shadow: 0.8rem 0.8rem 0.3rem var(--second-color);
     margin: 8rem auto 0 auto;
@@ -109,10 +108,4 @@ td {
     color: var(--primary-color);
     cursor: pointer;
 };
-
-.btn-edit:hover, .btn-delete:hover {
-    width: 8rem;
-    background-color: var(--fourth-color);
-    transition: ease-in-out .3s;
-}
 
