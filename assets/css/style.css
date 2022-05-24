@@ -54,11 +54,13 @@ header h1 {
 table {
     border-collapse: collapse;
     box-shadow: 0.8rem 0.8rem 0.3rem var(--second-color);
+    table-layout: auto;
+    width: 80%;
     margin: 8rem auto 0 auto;
 }
 
 .head-row-table {
-    width: 110rem;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,9 +88,11 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     height: 5rem;
     width: 100%;
     font-size: 2rem;
+    padding: 0 0.5rem;
     text-align: center;
     margin: 0 auto;
 }
