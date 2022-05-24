@@ -1,4 +1,5 @@
 const query = (element) => document.querySelector(element);
+let typeModal;
 
 const createDB = (element) => localStorage.setItem('db_client', JSON.stringify(element));
 
@@ -18,7 +19,7 @@ const deleteItemDB = (name, index) => {
         createDB(dbClient);
         clearBodyTable();
         updateDbInfo();
-    }
+    };
 };
 
 const openModal = () => {
@@ -30,6 +31,42 @@ const closeModal = () => {
     query('#modal-cad').style.display = "none";
     query('.primary-screen').style.opacity = '1';
     clearInput();
+};
+
+const topPage = () => {
+    window.scrollTo(0, 0);
+};
+
+const setMaskName = () => {
+    let inputName = query('#input-name');
+    let setName = inputName.value;
+    setName = setName.replace(/\d*/g, '').replace(/[!@#$%^&*=;:"|\\\+\{}\[\]><\/?\.\-]/g, '');
+    inputName.value = setName;
+};
+
+const setMaskTel = () => {
+    let inputTel = query('#input-tel');
+    let setTel = inputTel.value;
+    setTel = setTel.replace(/(^[A-Za-z])/g, '').replace(/[!@#$%^&*=;:"|\\\+\{}\[\]><\/?\.']/g, '');
+    setTel = setTel.replace(/^(\d{2})/, '($1)');
+    
+    if(setTel.length > 12 && setTel.length <= 13) {
+        setTel = setTel.replace(/(\d{4}$)/, '-$1');
+    };
+    
+    inputTel.value = setTel;
+};
+
+const setMaskCep = () => {
+    let inputCep = query('#input-cep');
+    let setCep = inputCep.value;
+    setCep = setCep.replace(/(^[A-Za-z])/g, '').replace(/[!@#$%^&*=;:"|\\\+\{}\[\]><\/?\.']/g, '');
+
+    if(setCep.length > 7 && setCep.length <= 8) {
+        setCep = setCep.replace(/(\d{3}$)/, '-$1');
+    };
+
+    inputCep.value = setCep;
 };
 
 const updateDbInfo = () => {
@@ -58,6 +95,8 @@ const clearInput = () => {
 }
 
 const createClient = () => {
+    typeModal = 'create';
+    
     let client = {
         name: query('#input-name').value,
         email: query('#input-email').value,
@@ -83,8 +122,8 @@ const createClient = () => {
             clearBodyTable();
             updateDbInfo();
             closeModal();
-        }
-    }
+        };
+    };
 };
 
 const setInfoImput = (clientInfo, indexClient) => {
@@ -101,6 +140,8 @@ const clientEditOrDelete = (e) => {
     const clickArea = e.target;
 
     if(clickArea.classList.contains('btn-edit')) {
+        typeModal = 'edit';
+
         const btnClient = clickArea.parentNode;
         const client = btnClient.parentNode;
         const indexClient = client.getAttribute('data-index');
@@ -113,7 +154,7 @@ const clientEditOrDelete = (e) => {
         openModal();
         setInfoImput(clientEdit, indexClient);
         
-    } 
+    }
     else if (clickArea.classList.contains('btn-delete')) {
         const btnClient = clickArea.parentNode;
         const client = btnClient.parentNode;
@@ -121,17 +162,26 @@ const clientEditOrDelete = (e) => {
         const indexClient = client.getAttribute('data-index');
 
         deleteItemDB(nameClient, indexClient);
-    }
+    };
+};
+
+const keyEnterConfirm = (e) => {
+    console.log(1)
+    const modal = query('#modal-cad');
+    if(modal.style.display == "flex") {
+        (e.keyCode === 13)? createClient(): '';
+        console.log(2) 
+    }; 
 };
 
 updateDbInfo();
-
-const topPage = () => {
-    window.scrollTo(0, 0);
-}
 
 query('#btn-add-client').addEventListener('click', openModal);
 query('#btn-cancel').addEventListener('click', closeModal);
 query('#btn-submit').addEventListener('click', createClient);
 document.addEventListener('click', clientEditOrDelete);
 query('.btn-mobile-page').addEventListener('click', topPage);
+query('#input-name').addEventListener('keyup', setMaskName);
+query('#input-tel').addEventListener('keyup', setMaskTel);
+query('#input-cep').addEventListener('keyup', setMaskCep);
+document.addEventListener('keyup', keyEnterConfirm);
