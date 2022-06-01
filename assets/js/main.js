@@ -54,6 +54,8 @@ const setMaskTel = () => {
         setTel = setTel.replace(/(\d{4}$)/, '-$1');
     };
     
+    setTel = setTel.replace(/([A-Za-z])/g, '')
+
     inputTel.value = setTel;
 };
 
@@ -65,6 +67,8 @@ const setMaskCep = () => {
     if(setCep.length > 7 && setCep.length <= 8) {
         setCep = setCep.replace(/(\d{3}$)/, '-$1');
     };
+
+    setCep = setCep.replace(/([A-Za-z])/g, '');
 
     inputCep.value = setCep;
 };
@@ -101,13 +105,14 @@ const validateForm = (client) => {
     };
 
     let emailConfirm = client.email.indexOf("@") !== -1;
+    let finalEmail = client.email.indexOf('.com') !== -1;
 
     if (client.name == ''||client.email == ''||client.tel == ''||client.cep == '') {
         validation.status = false;
         validation.message = 'Preencha todos os campos!';
         return validation;
 
-    } else if (emailConfirm === false) {
+    } else if (emailConfirm === false || finalEmail === false) {
         validation.status = false;
         validation.message = 'Formato de e-mail inválido';
         return validation;
