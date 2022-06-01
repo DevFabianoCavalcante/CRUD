@@ -94,6 +94,37 @@ const clearInput = () => {
     inputForm.forEach(input => input.value = '');
 }
 
+const validateForm = (client) => {
+    let validation = {
+        status: true,
+        message: '',
+    };
+
+    let emailConfirm = client.email.indexOf("@") !== -1;
+
+    if (client.name == ''||client.email == ''||client.tel == ''||client.cep == '') {
+        validation.status = false;
+        validation.message = 'Preencha todos os campos!';
+        return validation;
+
+    } else if (emailConfirm === false) {
+        validation.status = false;
+        validation.message = 'Formato de e-mail inválido';
+        return validation;
+    } else if (client.tel.length < 14) {
+        validation.status = false;
+        validation.message = 'Formato de telefone inválido';
+        return validation;
+    } else if (client.cep.length < 9) {
+        validation.status = false;
+        validation.message = 'Formato de cep inválido';
+        return validation;
+    } else {
+        validation.status = true;
+        return validation;
+    };
+};
+
 const createClient = () => {
     typeModal = 'create';
     
@@ -106,9 +137,10 @@ const createClient = () => {
 
     let dbClient = readDB();
     let checkTypeClient = query('#checkEdit').value;
-
-    if(client.name == ''||client.email == ''||client.tel == ''||client.cep == ''){
-       window.alert('Preencha todos os campos!');
+    
+    let validation = validateForm(client);
+    if(validation.status === false){
+       window.alert(validation.message);
     } 
     else {
         if(checkTypeClient == '') {
@@ -166,11 +198,9 @@ const clientEditOrDelete = (e) => {
 };
 
 const keyEnterConfirm = (e) => {
-    console.log(1)
     const modal = query('#modal-cad');
     if(modal.style.display == "flex") {
         (e.keyCode === 13)? createClient(): '';
-        console.log(2) 
     }; 
 };
 
