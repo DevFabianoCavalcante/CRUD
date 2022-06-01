@@ -104,17 +104,13 @@ const validateForm = (client) => {
         message: '',
     };
 
-    let emailConfirm = client.email.indexOf("@") !== -1;
+    let user = client.email.substring(0, client.email.indexOf('@'));
+    let domain = client.email.substring(client.email.indexOf('@') + 1,client.email.length);
     let finalEmail = client.email.indexOf('.com') !== -1;
 
     if (client.name == ''||client.email == ''||client.tel == ''||client.cep == '') {
         validation.status = false;
         validation.message = 'Preencha todos os campos!';
-        return validation;
-
-    } else if (emailConfirm === false || finalEmail === false) {
-        validation.status = false;
-        validation.message = 'Formato de e-mail inválido';
         return validation;
     } else if (client.tel.length < 14) {
         validation.status = false;
@@ -124,6 +120,19 @@ const validateForm = (client) => {
         validation.status = false;
         validation.message = 'Formato de cep inválido';
         return validation;
+    } else if((user.length <=2) ||
+    (domain.length <=3) ||
+    (user.search('@') !=-1) ||
+    (domain.search('@') !=-1) ||
+    (user.search(' ') !=-1) ||
+    (domain.search(' ') !=-1) ||
+    (domain.search('.') ==-1) ||
+    (domain.indexOf('.') <=1) ||
+    (domain.lastIndexOf('.') > domain.length -1)) {
+        validation.status = false;
+        validation.message = 'Formato de e-mail inválido.';
+        return validation;
+        
     } else {
         validation.status = true;
         return validation;
