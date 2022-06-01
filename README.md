@@ -15,7 +15,7 @@
 
 ### Como Acessar
 
-- Acesse a página atráves do [github pages](https://devfabianocavalcante.github.io/CRUD/)
+- Acesse a página clicando [aqui](https://fcsdevcrud.netlify.app/)
 
 ### Funcionalidades 
 
